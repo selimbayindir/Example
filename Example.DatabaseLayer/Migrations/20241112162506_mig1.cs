@@ -5,7 +5,7 @@
 namespace Example.DatabaseLayer.Migrations
 {
     /// <inheritdoc />
-    public partial class Mig1 : Migration
+    public partial class mig1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -50,6 +50,18 @@ namespace Example.DatabaseLayer.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                schema: "dbo",
+                table: "City",
+                columns: new[] { "Id", "Name" },
+                values: new object[] { 1, "Istanbul" });
+
+            migrationBuilder.InsertData(
+                schema: "dbo",
+                table: "District",
+                columns: new[] { "Id", "CityId", "Name" },
+                values: new object[] { 1, 1, "Sancaktepe" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_District_CityId",

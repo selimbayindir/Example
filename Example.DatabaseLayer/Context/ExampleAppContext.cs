@@ -14,6 +14,7 @@ namespace Example.DatabaseLayer
         {
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder) =>modelBuilder.ApplyConfigurationsFromAssembly(typeof(ExampleAppContext).Assembly).Seed();
+
        
     }
 }

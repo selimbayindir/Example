@@ -16,11 +16,13 @@ namespace Example.DatabaseLayer.Context
                 .Build();
 
             // Connection string'i appsettings.json'dan alıyoruz
-            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            var connectionString = configuration.GetConnectionString("DefaultConnection"); 
+            var connectionString2 = configuration.GetConnectionString("MssqlMy"); 
 
             // DbContextOptionsBuilder ile DbContext'i yapılandırıyoruz
             var optionsBuilder = new DbContextOptionsBuilder<ExampleAppContext>();
-            optionsBuilder.UseSqlServer(connectionString);
+            //optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder.UseSqlServer(connectionString2);
 
             return new ExampleAppContext(optionsBuilder.Options);
         }
@@ -28,10 +30,3 @@ namespace Example.DatabaseLayer.Context
 }
 
 
-/*
- *   "ConnectionStrings": {
-    "MssqlWorks": "Server=SELIMBAYINDIR\\SUPERHERO;Database=NZWaLKS;User Id=sa;Password=PerUpdate28;Trusted_Connection=True;TrustServerCertificate=True",
-    "MssqlMy": "Server=SELIM\\BYNDR;Database=NZWaLKS;User Id=sa;Password=Perkon123456;Trusted_Connection=True;TrustServerCertificate=True"
-  }
- * 
- */
